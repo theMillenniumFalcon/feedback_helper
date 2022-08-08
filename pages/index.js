@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer'
 import { LoginButtons } from '@/components/LoginButtons'
 import { FeedbackLink } from '@/components/FeedbackLink'
 import { Feedback } from '@/components/Feedback'
+import { EmptyState } from '@/components/SiteEmptyState'
 
 const SITE_ID = process.env.NEXT_PUBLIC_HOME_PAGE_SITE_ID
 
