@@ -44,7 +44,8 @@ const DashboardPage = () => (
         {/* <Dashboard /> */}
         <DashboardShell>
             <SiteTableHeader />
-            <SiteTableSkeleton />
+            {/* <SiteTableSkeleton /> */}
+            <EmptyState />
         </DashboardShell>
     </Page>
 )

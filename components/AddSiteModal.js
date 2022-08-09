@@ -38,21 +38,23 @@ export const AddSiteModal = ({ children }) => {
             }
         }
 
-        const { id } = createSite(newSite)
+        console.log(newSite)
+
+        // const { id } = createSite(newSite)
         toast({
             title: 'Success!',
             description: "We've added your site.",
             status: 'success',
-            duration: 5000,
+            duration: 3000,
             isClosable: true
         })
-        mutate(
-            ['/api/sites', auth.user.token],
-            async (data) => ({
-                sites: [{ id, ...newSite }, ...data.sites]
-            }),
-            false
-        )
+        // mutate(
+        //     ['/api/sites', auth.user.token],
+        //     async (data) => ({
+        //         sites: [{ id, ...newSite }, ...data.sites]
+        //     }),
+        //     false
+        // )
         onClose()
     }
 
