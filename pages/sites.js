@@ -5,13 +5,13 @@ import { fetcher } from '@/utils/fetcher';
 import { DashboardShell } from '@/components/DashboardShell';
 import { SiteTableHeader } from '@/components/SiteTableHeader';
 import { Page } from '@/components/Page';
-import { EmptyState } from '@/components/SiteEmptyState';
+import { SiteEmptyState } from '@/components/SiteEmptyState';
 import { SiteTableSkeleton } from '@/components/SiteTableSkeleton';
+import { SiteTable } from '@/components/SiteTable';
 
 const Dashboard = () => {
-    const { user } = useAuth()
-    // const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher)
-    // const isPaidAccount = user?.stripeRole !== 'free'
+    const auth = useAuth()
+    const { data } = useSWR('/api/sites', fetcher)
 
     if (!data) {
         return (
@@ -26,7 +26,7 @@ const Dashboard = () => {
         return (
             <DashboardShell>
                 <SiteTableHeader isPaidAccount={isPaidAccount} />
-                {/* <SiteTable sites={data.sites} /> */}
+                <SiteTable sites={data.sites} />
             </DashboardShell>
         )
     }
@@ -34,19 +34,14 @@ const Dashboard = () => {
     return (
         <DashboardShell>
             <SiteTableHeader isPaidAccount={isPaidAccount} />
-            {/* {isPaidAccount ? <SiteEmptyState /> : <UpgradeEmptyState />} */}
+            {isPaidAccount ? <SiteEmptyState /> : <UpgradeEmptyState />}
         </DashboardShell>
     )
 }
 
 const DashboardPage = () => (
     <Page name="Dashboard" path="/sites">
-        {/* <Dashboard /> */}
-        <DashboardShell>
-            <SiteTableHeader />
-            {/* <SiteTableSkeleton /> */}
-            <EmptyState />
-        </DashboardShell>
+        <Dashboard />
     </Page>
 )
 

@@ -3,7 +3,7 @@ import { Heading, Flex, Text, Button } from '@chakra-ui/react'
 
 import { AddSiteModal } from './AddSiteModal'
 
-export const EmptyState = () => (
+export const SiteEmptyState = () => (
     <Flex
         width="100%"
         backgroundColor="white"
